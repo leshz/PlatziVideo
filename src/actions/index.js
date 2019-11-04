@@ -1,3 +1,4 @@
+import { constants } from 'zlib';
 
 const actions = {
   setFavorite: 'SET_FAVORITE',
@@ -5,6 +6,7 @@ const actions = {
   loginRequest: 'LOGIN_REQUEST',
   logoutRequest: 'LOGOUT_REQUEST',
   registerRequest: 'REGISTER_REQUEST',
+  getVideoSource: 'GET_VIDEO_SOURCE',
 };
 
 const setFavorite = payload => (
@@ -35,4 +37,9 @@ const registerRequest = payload => ({
   payload,
 });
 
-export { setFavorite, deleteFavorite, actions, loginRequest, logoutRequest, registerRequest };
+const getVideoSource = payload => ({
+  type: actions.getVideoSource,
+  payload,
+});
+
+export { setFavorite, deleteFavorite, actions, loginRequest, logoutRequest, registerRequest , getVideoSource };
