@@ -9,7 +9,7 @@ import { setFavorite, deleteFavorite } from '../actions';
 
 const CarouselItem = (props) => {
 
-  const { id, cover, title, year, contentRating, duration } = props;
+  const { id, cover, title, year, contentRating, duration, isList } = props;
   const handleSetFavorite = () => {
     props.setFavorite({ id, cover, title, year, contentRating, duration });
   };
@@ -23,13 +23,23 @@ const CarouselItem = (props) => {
       <div className='carousel-item__details'>
         <div>
           <img className='carousel-item__details--img' src={playIcon} alt='Play Icon' />
-          <img className='carousel-item__details--img' src={plusIcon} onClick={handleSetFavorite} alt='Plus Icon' />
-          <img
-            className='carousel-item__details--img'
-            src={deleteIcon}
-            onClick={() => handleDeleteFavorite(id)}
-            alt='delete button'
-          />
+
+          {isList ? (
+            <img
+              className='carousel-item__details--img'
+              src={deleteIcon}
+              onClick={() => handleDeleteFavorite(id)}
+              alt='delete button'
+            />
+          ) : (
+            <img
+              className='carousel-item__details--img'
+              src={plusIcon}
+              onClick={handleSetFavorite}
+              alt='Plus Icon'
+            />
+          )}
+
         </div>
         <p className='carousel-item__details--title'>{title}</p>
         <p className='carousel-item__details--subtitle'>
