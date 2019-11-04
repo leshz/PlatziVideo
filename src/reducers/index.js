@@ -13,6 +13,11 @@ const reducer = (state, action) => {
         mylist: state.mylist.filter(items => items.id !== action.payload),
 
       };
+    case actions.loginRequest:
+      return {
+        ...state,
+        user: action.payload,
+      };
 
     default:
       return state;
@@ -20,4 +25,3 @@ const reducer = (state, action) => {
 };
 
 export { reducer };
-
