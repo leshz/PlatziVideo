@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { getVideoSource } from '../actions';
 import '../assets/styles/components/Player.scss';
-import NotFound from "./NotFound";
+import NotFound from './NotFound';
 
 const Player = (props) => {
 
-  const { source, playing } = props;
+  const { id } = props.match.params;
+  const { playing } = props;
 
-  console.log(props);
   const hasPlaying = Object.keys(playing).length > 0;
 
   const handleBack = (params) => {
@@ -22,8 +21,8 @@ const Player = (props) => {
 
   return hasPlaying ? (
     <div className='Player'>
-      <video autoPlay controls muted>
-        <source src={source} type='video/mp4' />
+      <video autoPlay controls>
+        <source src={playing.source} type='video/mp4' />
       </video>
       <div className='Player-back'>
         <button type='button' onClick={handleBack}>Regresar</button>
@@ -31,7 +30,7 @@ const Player = (props) => {
     </div>
   ) : <NotFound />;
 };
-const mapStateToprops = () => {
+const mapStateToprops = (state) => {
   return {
     playing: state.playing,
   };
