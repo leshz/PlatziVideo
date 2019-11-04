@@ -11,7 +11,7 @@ const Home = ({ mylist, trends, originals }) => {
   return (
     <div className='App'>
 
-      <Search />
+      <Search isHome />
       {mylist.length > 0 && (
         <Categories title='Mi Lista'>
           <Carousel>
