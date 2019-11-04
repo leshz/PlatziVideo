@@ -19,9 +19,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-height: 700px;
     padding: 60px 68px 40px;
-    width: 500px;
   }
   
   .login__container--form {
@@ -31,9 +29,6 @@
   
   .login__container--form label {
     font-size: 14px;
-  }
-  .login__container--form input {
-    width: 100%;
   }
   
   .login__container--remember-me {
